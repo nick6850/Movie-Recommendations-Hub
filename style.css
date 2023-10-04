@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.site-info {
+    font-size: 65px;
+}
+
+#watchlist-link {
+    font-size: 30px;
+}
+
+header {
+    width: 100vw;
+    height: 23vh;
+    background-image: url(posters.webp);
+    background-repeat: repeat;
+    background-size: contain;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-shadow: 1px 1px black;
+    margin-bottom: 15px;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    width: 80vw;
+    max-width: 700px;
+    gap: 10px;
+}
+
+input[type='text'] {
+    flex: 1;
+}
+
+.movie {
+    overflow: hidden;
+    display: grid;
+    height: 30vw;
+    width: 80vw;
+    border: 1px black solid;
+    max-height: 250px;
+    max-width: 700px;
+    justify-items: center;
+    align-items: start;
+    grid-template-columns: repeat(8, auto);
+    grid-gap: 15px;
+    grid-template-rows: 0.5fr auto auto 1fr;
+    grid-template-areas: 
+    'poster . . . . . . .'
+    'poster title title title title title rating rating'
+    'poster duration genre genre genre genre watchlist watchlist'
+    'poster description description description description description description description';
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#poster {
+    height: 100%;
+    grid-area: poster;
+}
+
+.title {
+    grid-area: title;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.rating {
+    grid-area: rating;
+}
+
+.duration {
+    grid-area: duration;
+}
+
+.genre {
+    grid-area: genre;
+}
+
+.watchlist {
+    grid-area: watchlist;
+}
+
+.description {
+    grid-area: description;
+    text-align: start;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
