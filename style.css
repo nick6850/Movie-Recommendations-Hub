@@ -11,10 +11,14 @@ a {
 
 .site-info {
     font-size: 65px;
+    background-color: rgba(0, 0, 0, 0.414);
+    padding: 10px;
 }
 
 #watchlist-link {
     font-size: 30px;
+    background-color: rgba(0, 0, 0, 0.414);
+    padding: 10px;
 }
 
 header {
@@ -48,6 +52,7 @@ form {
 
 input[type='text'] {
     flex: 1;
+    padding: 10px;
 }
 
 .movie {

@@ -1,7 +1,8 @@
 const searchForm = document.getElementById('search')
 const searchBar = document.getElementById('search-bar')
 const movieList = document.querySelector('.movie-list')
-
+const addToWatchList = document.querySelector('.movie-list')
+const addedFilms = document.querySelector('.added-films')
 
 searchForm.addEventListener('submit', e => {
     e.preventDefault()
@@ -33,10 +34,8 @@ const getFilmsDetails = function(filmsArr) {
   };
 
 const renderFilms = function(filmsArr) {
-    console.log(filmsArr)
     let newHtml = ''
     filmsArr.forEach(film => {
-        console.log('hey!')
         newHtml += `
         <div class="movie">
                 <img id='poster' src="${film.Poster}" alt="">
@@ -44,7 +43,7 @@ const renderFilms = function(filmsArr) {
                 <div class="rating">${film.Ratings[0].Value}</div>
                 <div class="duration">${film.Runtime}</div>
                 <div class="genre">${film.Genre}</div>
-                <button class="watchlist">+ Watchlist</button>
+                <button id="watchlist" class="watchlist">+ Watchlist</button>
                 <div class="description">${film.Plot} </div>
         </div>
         `
@@ -52,8 +51,15 @@ const renderFilms = function(filmsArr) {
     movieList.innerHTML = newHtml
 }
 
+let watchListHtml = ''
 
 
-
+document.body.addEventListener('click', (e) => {
+  if (e.target.id === 'watchlist') {
+    watchListHtml += e.target.parentElement.innerHTML
+    e.target.disabled = true
+  }
+  localStorage.setItem('watchListHtml', watchListHtml);
+})
 
 
